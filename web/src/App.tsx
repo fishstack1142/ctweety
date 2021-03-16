@@ -8,6 +8,8 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import Users from "./components/users";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Landing from "./components/Landing";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
@@ -27,27 +29,33 @@ const client = new ApolloClient({
 //   })
 //   .then(result => console.log(result));
 
-client
-  .query({
-    query: gql`
-      query GetUsers {
-        allUsers {
-          id
-          name
-          email
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
+// client
+//   .query({
+//     query: gql`
+//       query GetUsers {
+//         allUsers {
+//           id
+//           name
+//           email
+//         }
+//       }
+//     `
+//   })
+//   .then(result => console.log(result));
 
 function App() {
-
   return (
     <ApolloProvider client={client}>
-      <div>
-        <Users />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Users />
+          </Route>
+          <Route path="/landing">
+            <Landing />
+          </Route>
+        </Switch>
+      </Router>
     </ApolloProvider>
   );
 }

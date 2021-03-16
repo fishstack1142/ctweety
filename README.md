@@ -8,3 +8,5 @@ prisma migrate dev --preview-feature
 yarn add @apollo/client graphal
 
 https://www.apollographql.com/docs/react/get-started/
+
+yarn add apollo-link-context
