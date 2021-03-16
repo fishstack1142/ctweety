@@ -29,6 +29,13 @@ const Query = objectType({
       },
     })
 
+    t.nonNull.list.nonNull.field('users', {
+      type: 'User',
+      resolve: (_parent, _args, context: Context) => {
+        return context.prisma.user.findMany()
+      },
+    })
+
     t.nullable.field('me', {
       type: 'User',
       resolve: (parent, args, context: Context) => {

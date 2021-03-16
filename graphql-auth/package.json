@@ -11,6 +11,7 @@
     "generate:nexus": "ts-node --transpile-only src/schema"
   },
   "dependencies": {
+    "@nexus/schema": "^0.20.1",
     "@prisma/client": "2.18.0",
     "apollo-server": "2.21.1",
     "bcryptjs": "2.4.3",
