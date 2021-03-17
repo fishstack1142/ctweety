@@ -1,7 +1,7 @@
 import React from "react";
 import { gql, useMutation } from "@apollo/client";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup";
 
 const SIGNUP_MUTATION = gql`
@@ -49,7 +49,7 @@ export default function Signup() {
 
   return (
     <div>
-      <h1>Sign Up</h1>
+      <h3>Sign Up</h3>
       <Formik
         initialValues={initialValues}
         validationSchema={validateSchema}
@@ -80,9 +80,13 @@ export default function Signup() {
           />
           <ErrorMessage name="confirmPassword" component={"div"} />
 
-          <button type="submit">Signup</button>
+          <button type="submit" className="login-button">Signup</button>
         </Form>
       </Formik>
+      <div className="regist">
+          <h4>Already have an account?</h4>
+          <Link to="/login">Log in</Link>
+      </div>
     </div>
   );
 }

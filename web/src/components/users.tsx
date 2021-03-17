@@ -22,6 +22,7 @@ export default function Users() {
   if(error) return <p>error:{error.message}</p>
 
   console.log('data', data)
+  console.log(process.env.REACT_APP_URL_ADDRESS)
 
   return <div>
       {data.users.map((user: User) => (<p>{user.name} : {user.email}</p>))}

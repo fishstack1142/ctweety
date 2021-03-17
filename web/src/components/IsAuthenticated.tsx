@@ -25,5 +25,4 @@ export default function IsAuthenticated({ children }: Props) {
   }
 
   return <div> {data.me.email} [][]{children}</div>;
-  //   return children;
 }
